@@ -17,6 +17,6 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 # Setup
 
-pnpm i
+`pnpm i`
 
-pnpm dev
+`pnpm dev`

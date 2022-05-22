@@ -133,6 +133,11 @@ table{
   border-radius: 40px;
   text-align: center;
   font-weight: 600;
+  cursor: pointer;
+}
+.TestEnter:hover{
+  background: #1C84FF;
+  color: #FFFFFF;
 }
 .UzName{
   font-family: 'Inter' sans-serif;

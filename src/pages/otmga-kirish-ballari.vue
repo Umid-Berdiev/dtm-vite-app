@@ -64,13 +64,13 @@ function direction() {
                   <div class="otmName">Oliy ta’lim muassasalari</div>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm"></span> Mutaxassisliklar soni <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"> <span class="elips_otm"></span> Mutaxassisliklar soni <img src="/src/assets/images/sort.png" alt="Sort"/></span>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm_center"></span> O‘rtacha kirish balli <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"> <span class="elips_otm_center"></span> O‘rtacha kirish balli <img src="src/assets/images/sort.png" alt="Sort"></span>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm_all"></span> Umumiy qabul kvotasi <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"> <span class="elips_otm_all"></span> Umumiy qabul kvotasi <img src="src/assets/images/sort.png" alt="Sort"></span>
                 </th>
               </tr>
             </thead>

@@ -5,27 +5,20 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 const availableTestsCount = ref<Number>(10)
 
-
-function direction() {
-  router.push('/otmga-kirish-ballari-deriction')
-}
 </script>
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 mt-5">
-        <form action="">
-          <div class="row">
+      <div class="col-md-3 mt-5">
+        <div class="backBlock d-flex align-items-center">
+          <div><img src="src/assets/images/back.png" srcset=""></div>
+          <div class="UzName">Andijon davlat universiteti</div>
+        </div>
+      </div>
+      <div class="col-md-9 mt-5">
+         <form action="">
+          <div class="row d-flex justify-content-end">
             <div class="form-group col-md-3">
-              <select name="" class="form-select rounded-pil" id="otm_enter_select">
-                  <option value="" selected><b>Hududni tanlang</b></option>
-                  <option value="">Toshkent Shaxar</option>
-                  <option value="">Buxoro Viloyat</option>
-                  <option value="">Jizzax Viloyat</option>
-                  <option value="">Samarqand Viloyat</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
                 <select name="" class="form-select rounded-pil" id="otm_enter_select">
                   <option value="" selected><b>Ta'lim shakli</b></option>
                     <option value="">Sirtqi</option>
@@ -33,7 +26,7 @@ function direction() {
                     <option value="">Kundizgi</option>
                 </select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <select name="" class="form-select rounded-pil" id="otm_enter_select">
                 <option value="" selected><b>Ta'lim tili</b></option>
                   <option value="">O'zbekcha</option>
@@ -41,7 +34,7 @@ function direction() {
                   <option value="">Ruscha</option>
               </select>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
               <select name="" class="form-select rounded-pil" id="otm_enter_select">
                 <option value="" selected><b>O'quv yili</b></option>
                   <option value="">2019-2020</option>
@@ -51,8 +44,6 @@ function direction() {
               </select>
             </div>
           </div>
-          
-          
         </form>
       </div>
       <div class="col-md-12">
@@ -61,24 +52,24 @@ function direction() {
             <thead class="HerderTable border-none" style="border:none">
               <tr>
                 <th scope="col">
-                  <div class="otmName">Oliy ta’lim muassasalari</div>
+                  <div class="otmName">Yo‘nalishlar</div>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm"></span> Mutaxassisliklar soni <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"> <span class="elips_otm"></span> Grant <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm_center"></span> O‘rtacha kirish balli <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"> <span class="elips_otm_center"></span> Shartnoma <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
                 </th>
                 <th scope="col">
-                  <span class="otmName"> <span class="elips_otm_all"></span> Umumiy qabul kvotasi <img src="/src/assets/images/sort.png" alt="Sort" width="10px"></span>
+                  <span class="otmName"></span>
                 </th>
               </tr>
             </thead>
             <tbody class="otmTable box">
-              <tr @click="direction">
+              <tr >
                 <td scope="row">
                   <span class="otmNameInnner">
-                      Andijon davlat tibbiyot instituti
+                      Amaliy matematika va informatika
                   </span>
                 </td>
                 <td class="fw1">
@@ -88,13 +79,13 @@ function direction() {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3">
-                  <span><span class="elips_otm_all"></span> 2425</span>
+                  <div class="TestEnter">Testni topshirish</div>
                 </td>
               </tr>
               <tr>
                 <td scope="row">
                   <span class="otmNameInnner">
-                      Andijon qishloq xo‘jaligi va agrotexnologiyalar instituti
+                      Amaliy sanat: badiiy kulolchilik
                   </span>
                 </td>
                 <td class="fw1">
@@ -104,13 +95,13 @@ function direction() {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3">
-                  <span><span class="elips_otm_all"></span> 2425</span>
+                  <div class="TestEnter">Testni topshirish</div>
                 </td>
               </tr>
               <tr>
                 <td scope="row">
                   <span class="otmNameInnner">
-                      Buxoro davlat tibbiyot instituti
+                      Arxivshunoslik
                   </span>
                 </td>
                 <td class="fw1">
@@ -120,13 +111,13 @@ function direction() {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3">
-                  <span><span class="elips_otm_all"></span> 2425</span>
+                  <div class="TestEnter">Testni topshirish</div>
                 </td>
               </tr>
               <tr>
                 <td scope="row">
                   <span class="otmNameInnner">
-                      Andijon qishloq xo‘jaligi va agrotexnologiyalar instituti
+                     Cholg'u ijrochiligi: xalq cholg'ulari (rubob prima, qashqar va afg'on rubobi)
                   </span>
                 </td>
                 <td class="fw1">
@@ -136,13 +127,13 @@ function direction() {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3">
-                  <span><span class="elips_otm_all"></span> 2425</span>
+                  <div class="TestEnter">Testni topshirish</div>
                 </td>
               </tr>
               <tr>
                 <td scope="row">
                   <span class="otmNameInnner">
-                      Andijon davlat universiteti
+                      Ekologiya va atrof-muhit muhofazasi (tarmoqlar va sohalar bo'yicha)
                   </span>
                 </td>
                 <td class="fw1">
@@ -152,7 +143,7 @@ function direction() {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3">
-                  <span><span class="elips_otm_all"></span> 2425</span>
+                  <div class="TestEnter">Testni topshirish</div>
                 </td>
               </tr>
             </tbody>
@@ -182,7 +173,3 @@ function direction() {
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
-
-
-</style>

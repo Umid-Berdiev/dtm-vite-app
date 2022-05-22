@@ -59,22 +59,22 @@ const { t } = useI18n()
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">
+          <RouterLink class="nav-link" to="/otm-level">
             {{ t("OTM reytingi") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">
+          <RouterLink class="nav-link" to="/news">
             {{ t("Yangiliklar") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">
+          <RouterLink class="nav-link" to="/results">
             {{ t("Imtihon natijalari") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/">
+          <RouterLink class="nav-link" to="/statistics">
             {{ t("Statistika") }}
           </RouterLink>
         </li>

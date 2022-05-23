@@ -1,8 +1,10 @@
 .box {
   box-sizing: border-box;
   background: #FFFFFF;
-  border: 1px solid #E6E6E9;
-  border-radius: 1rem !important;
+  //border: 0.5px solid #E6E6E9;
+  border-top: none;
+  //border-radius: 1rem !important;
+  //box-shadow: 1px 1px 10px #96C5FC;
 }
 .form-group {
   display: flex;

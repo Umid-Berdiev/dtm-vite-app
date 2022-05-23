@@ -4,63 +4,63 @@
         <div class="row">
             <div class="col-md-11">
                 <div class="row">
-                    <div class="col-md-4 my-5 pb-2">
+                    <div class="col-md-4 my-4">
                         <div class="newsBox" @click="innernews">
                             <div class="newsImages"><img src="src/assets/images/dtmpost.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a @click="innernews">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>
-                    <div class="col-md-4 my-5 pb-2" @click="innernews">
+                    <div class="col-md-4 my-4" @click="innernews">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/pos2.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>
-                    <div class="col-md-4 my-5 pb-2" @click="innernews">
+                    <div class="col-md-4 my-4" @click="innernews">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post3.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Maktab bitiruvchilari uchun ochiq eshiklar kuni o‘tkazildi</a></div>
                         </div>
                     </div>
-                    <div class="col-md-4 my-5 pb-2" @click="innernews">
+                    <div class="col-md-4 my-4" @click="innernews">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post3.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Chet tili imtihoni uchun my.gov.uz sayti orqali onlayn ro‘yxatdan o‘tish bo‘yicha yo‘riqnoma</a></div>
                         </div>
                     </div>
-                    <div class="col-md-4 my-5 pb-2" @click="innernews">
+                    <div class="col-md-4 my-4" @click="innernews">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>      
-                    <div class="col-md-4 my-5 pb-2">
+                    <div class="col-md-4 my-4">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>      
-                    <div class="col-md-4 my-5 pb-2">
+                    <div class="col-md-4 my-4">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>      
-                    <div class="col-md-4 my-5 pb-2">
+                    <div class="col-md-4 my-4">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
                             <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
                         </div>
                     </div>      
-                    <div class="col-md-4 my-5 pb-2">
+                    <div class="col-md-4 my-4">
                         <div class="newsBox">
                             <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
                             <div class="newsDate"><div><img src="src/assets/images/date.png" alt=""></div><div class="dateText">28-fevral 09:15</div></div>
@@ -87,14 +87,14 @@
 <style lang="scss" scoped>
     .newsBox{
         width:100%;
-        height: 244px;
+        height: auto;
         border-radius: 8px;
         padding:10px;
         .newsDate{
-        margin: 10px 0px;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+          margin: 10px 0px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
         .dateText{
             font-family: 'Inter' sans-serif;
             font-style: normal;
@@ -120,6 +120,7 @@
     }
     .newsImages{
         width: 100%;
+        overflow: hidden;
         img{
             width: 100%;
             object-fit: cover;

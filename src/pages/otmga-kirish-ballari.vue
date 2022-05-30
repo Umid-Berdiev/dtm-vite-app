@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import Table from "~/pages/table.vue";
 
 const router = useRouter()
 const availableTestsCount = ref<Number>(10)
@@ -57,24 +58,24 @@ function direction() {
       </div>
       <div class="col-md-12">
         <div class="table-responsive box mt-3">
-          <table class="w-100 table-hover table ">
-            <thead class="HerderTable border-none" style="border:none">
+          <table class="w-100">
+            <thead class="HerderTable">
               <tr>
-                <th scope="col">
+                <th>
                   <div class="otmName">Oliy ta’lim muassasalari</div>
                 </th>
-                <th scope="col">
+                <th>
                   <span class="otmName"> <span class="elips_otm"></span> Mutaxassisliklar soni <img src="/src/assets/images/sort.png" alt="Sort"/></span>
                 </th>
-                <th scope="col">
+                <th>
                   <span class="otmName"> <span class="elips_otm_center"></span> O‘rtacha kirish balli <img src="src/assets/images/sort.png" alt="Sort"></span>
                 </th>
-                <th scope="col">
+                <th>
                   <span class="otmName"> <span class="elips_otm_all"></span> Umumiy qabul kvotasi <img src="src/assets/images/sort.png" alt="Sort"></span>
                 </th>
               </tr>
             </thead>
-            <tbody class="otmTable box">
+            <tbody class="otmTable">
               <tr @click="direction">
                 <td scope="row">
                   <span class="otmNameInnner">
@@ -183,6 +184,16 @@ function direction() {
   </div>
 </template>
 <style lang="scss" scoped>
-
+table{
+}
+thead{
+  border-bottom: none !important;
+}
+.otmTable tr{
+  border-bottom: 1px solid  rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}.otmTable tr:hover{
+   background-color: #F9F9F9;
+ }
 
 </style>

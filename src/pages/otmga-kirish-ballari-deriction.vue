@@ -48,10 +48,10 @@ const availableTestsCount = ref<Number>(10)
       </div>
       <div class="col-md-12">
         <div class="table-responsive box mt-3">
-          <table class="w-100 table-hover table ">
-            <thead class="HerderTable border-none" style="border:none">
-              <tr>
-                <th scope="col">
+          <table class="w-100">
+            <thead class="HerderTable">
+              <tr style="background: #f8f9fa;margin: 20px;border:none">
+                <th scope="col" >
                   <div class="otmName">Yo‘nalishlar</div>
                 </th>
                 <th scope="col">
@@ -66,7 +66,7 @@ const availableTestsCount = ref<Number>(10)
               </tr>
             </thead>
             <tbody class="otmTable box">
-              <tr >
+              <tr>
                 <td scope="row">
                   <span class="otmNameInnner">
                       Amaliy matematika va informatika
@@ -173,3 +173,17 @@ const availableTestsCount = ref<Number>(10)
     </div>
   </div>
 </template>
+<style lang="scss" scoped>
+table{
+}
+thead{
+  border-bottom: none !important;
+}
+
+.otmTable tr{
+  border-bottom: 1px solid  rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}.otmTable tr:hover{
+  background-color: #F9F9F9;
+}
+</style>

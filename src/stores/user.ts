@@ -1,65 +1,79 @@
-import { computed, ref } from "vue";
-import { acceptHMRUpdate, defineStore } from "pinia";
-import makeRequest from "~/api/makeRequest.js";
+import { defineStore, acceptHMRUpdate } from "pinia";
+import { useToast } from "vue-toastification";
+import makeRequest from "../api/makeRequest";
 
-export const useUserStore = defineStore("user", () => {
-  /**
-   * Current name of the user.
-   */
-  const user = ref({});
-  const userBalance = ref(0);
-  const savedName = ref("");
-  const previousNames = ref(new Set<string>());
+const toast = useToast();
+const locale = "uz";
 
-  function setUser(val: object) {
-    user.value = val;
-  }
+/**
+ * Simulate a login
+ * @param {string} a
+ * @param {string} p
+ */
+function apiLogin(a: string, p: string) {
+  if (a === "ed" && p === "ed") return Promise.resolve({ isAdmin: true });
+  if (p === "ed") return Promise.resolve({ isAdmin: false });
+  return Promise.reject(new Error("invalid credentials"));
+}
 
-  function setUserBalance(val: number) {
-    userBalance.value = val;
-  }
+export const useUserStore = defineStore({
+  id: "user",
+  state: () => ({
+    name: "Eduardo",
+    isAdmin: true,
+  }),
 
-  function getUser(): number {
-    return userBalance.value;
-  }
+  getters: {
+    getUserBalance: (state) => {},
+  },
 
-  function getUserBalance(): number {
-    return userBalance.value;
-  }
-
-  async function fetchUser() {
-    try {
-      const res = await makeRequest({
-        url: "/api/user",
-        headers: { authorization: true },
+  actions: {
+    logout() {
+      this.$patch({
+        name: "",
+        isAdmin: false,
       });
 
-      setUser(res.data);
-    } catch (err) {
-      return console.log("Error while fetching user: ", err);
-    }
-  }
+      // we could do other stuff like redirecting the user
+    },
 
-  async function fetchUserBalance() {
-    try {
-      const res = await makeRequest({
-        url: "/api/balance",
-        headers: { authorization: true },
+    /**
+     * Attempt to login a user
+     * @param {string} user
+     * @param {string} password
+     */
+    async login(user: string, password: string) {
+      const userData = await apiLogin(user, password);
+
+      this.$patch({
+        name: user,
+        ...userData,
       });
+    },
 
-      setUserBalance(res.data);
-    } catch (err) {
-      return console.log("Error while fetching user balance: ", err);
-    }
-  }
-
-  return {
-    getUser,
-    getUserBalance,
-    fetchUser,
-    fetchUserBalance,
-  };
+    async fetchUserBalance() {
+      try {
+        //   const res = makeRequest({
+        // })
+      } catch (error: any) {
+        console.log("Error while fetching user balance: ", error.message);
+        toast.error("Error while fetching user balance: " + error.message);
+        throw error;
+      }
+    },
+    async updateUserBalance() {
+      try {
+        //   const res = makeRequest({
+        // })
+      } catch (error: any) {
+        console.log("Error while updating user balance: ", error.message);
+        toast.error("Error while updating user balance: " + error.message);
+        throw error;
+      }
+    },
+  },
 });
 
-if (import.meta.hot)
+if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useUserStore, import.meta.hot));
+}

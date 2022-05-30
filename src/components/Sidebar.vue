@@ -49,8 +49,13 @@ const { t } = useI18n()
     <div class="position-sticky pt-3 w-100">
       <ul class="nav flex-column">
         <li class="nav-item active">
-          <RouterLink class="nav-link" to="/imtixon-topshirish">
+          <RouterLink class="nav-link" to="/exams">
             {{ t("Imtixon topshirish") }}
+          </RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/exams/results">
+            {{ t("Imtihon natijalari") }}
           </RouterLink>
         </li>
         <li class="nav-item">
@@ -66,11 +71,6 @@ const { t } = useI18n()
         <li class="nav-item">
           <RouterLink class="nav-link" to="/news">
             {{ t("Yangiliklar") }}
-          </RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink class="nav-link" to="/results">
-            {{ t("Imtihon natijalari") }}
           </RouterLink>
         </li>
         <li class="nav-item">

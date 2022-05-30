@@ -1,6 +1,6 @@
-import { useStorage } from "@vueuse/core";
 import axios from "axios";
-import { errorHandler } from "./config";
+import { errorHandler, getToken } from "./config";
+// import { useAxios } from "@vueuse/integrations/useAxios";
 
 export default async ({
   url = "/",
@@ -10,10 +10,11 @@ export default async ({
   data = {},
 }) => {
   if (headers && headers.authorization) {
-    headers.authorization = "Bearer " + useStorage("token");
+    headers.authorization = "Bearer " + getToken.value;
   }
 
   try {
+    axios.defaults.baseURL = import.meta.env.VITE_API_URL;
     return await axios({
       url,
       method,

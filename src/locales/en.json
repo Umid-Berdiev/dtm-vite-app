@@ -1,4 +1,6 @@
 {
   "not-found": "Not found",
-  "warning_message1": "60 minutes are set for each major and 20 minutes are set for each compulsory subject. You will be given a total of 180 minutes to answer all the questions."
+  "warning_message1": "60 minutes are set for each major and 20 minutes are set for each compulsory subject. You will be given a total of 180 minutes to answer all the questions.",
+  "Yes": "Yes",
+  "No": "No"
 }

@@ -10,7 +10,7 @@ const diff = ref(sencondsAfterThreeHours - sencondsByNow);
 const interval = 1000;
 
 export default () => {
-  function setDiff() {
+  function startTimer() {
     const timerID = setInterval(() => {
       if (diff.value === 0) clearInterval(timerID);
       diff.value = diff.value - interval;
@@ -18,7 +18,7 @@ export default () => {
   }
 
   return {
-    setDiff,
+    startTimer,
     diff,
   };
 };

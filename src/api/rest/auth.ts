@@ -26,7 +26,5 @@ export const logout = async () => {
     headers: { authorization: true },
   });
 
-  useStorage("token", null);
+  useStorage("token", "");
 };
-
-

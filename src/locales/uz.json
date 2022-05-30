@@ -1,4 +1,6 @@
 {
   "not-found": "Topilmadi",
-  "warning_message1": "Har bir mutaxasislik fani uchun 60 daqiqa belgilangan va har bir majburiy fan uchun 20 daqiqa belgilangan. Sizga barcha savollarga javob berish uchun jami 180 daqiqa beriladi."
+  "warning_message1": "Har bir mutaxasislik fani uchun 60 daqiqa belgilangan va har bir majburiy fan uchun 20 daqiqa belgilangan. Sizga barcha savollarga javob berish uchun jami 180 daqiqa beriladi.",
+  "Yes": "Ha",
+  "No": "Yo'q"
 }

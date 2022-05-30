@@ -53,7 +53,8 @@ export default defineConfig({
     proxy: {
       // with options
       "^/api": {
-        target: "https://backoffice.inbrain.uz/api",
+        target: "http://dtm-api.inbrain.test",
+        // target: "https://backoffice.inbrain.uz/api",
         // port: 8080,
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),

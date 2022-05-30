@@ -1,211 +1,227 @@
 .box {
   box-sizing: border-box;
-  background: #FFFFFF;
-  border: 1px solid #E6E6E9;
+  background: #ffffff;
+  border: 1px solid #e6e6e9;
   border-radius: 1rem !important;
 }
 .form-group {
   display: flex;
   justify-content: start;
-  #otm_enter_select{
-    height:40px;
+  #otm_enter_select {
+    height: 40px;
     margin-right: 30px;
-    border: 1px solid #E6E6E9;
+    border: 1px solid #e6e6e9;
     border-radius: 56px;
-    padding:0px 40px;
+    padding: 0px 40px;
     font-family: sans-serif;
     font-weight: 500;
   }
-  #otm_enter_select:focus{
+  #otm_enter_select:focus {
     box-shadow: none !important;
-    border: 2px solid #96C5FC !important;
+    border: 2px solid #96c5fc !important;
   }
 }
-table{
+table {
   margin-bottom: 0px !important;
 }
-.HerderTable{
+.HerderTable {
   background: #f8f9fa !important;
-  tr{
-    th{
-      padding:20px
+  tr {
+    th {
+      padding: 20px;
     }
   }
 }
 
-.NomerBox{
-  width:32px;
-  line-height:32px;
-  background: #FDF3D9;
-    border: 1px solid #F0AD00;
-    border-radius: 10px;
-    text-align: center;
-    color: #F0AD00;
+.NomerBox {
+  width: 32px;
+  line-height: 32px;
+  background: #fdf3d9;
+  border: 1px solid #f0ad00;
+  border-radius: 10px;
+  text-align: center;
+  color: #f0ad00;
 }
-.NomerBox{
-  width:32px;
-  line-height:32px;
-  background: #FDF3D9;
-    border: 1px solid #F0AD00;
-    border-radius: 10px;
-    text-align: center;
-    color: #F0AD00;
+.NomerBox {
+  width: 32px;
+  line-height: 32px;
+  background: #fdf3d9;
+  border: 1px solid #f0ad00;
+  border-radius: 10px;
+  text-align: center;
+  color: #f0ad00;
 }
-.colorRangBotm{
-  width:32px;
-  line-height:32px;
-  background: #EFEFEF;
-    border: 1px solid #EFEFEF;
-    border-radius: 10px;
-    text-align: center;
-    color: #939393;
+.colorRangBotm {
+  width: 32px;
+  line-height: 32px;
+  background: #efefef;
+  border: 1px solid #efefef;
+  border-radius: 10px;
+  text-align: center;
+  color: #939393;
 }
-.colorRangTop{
-  width:32px;
-  line-height:32px;
-  background: #E9F3FF;
-    border: 1px solid #E9F3FF;
-    border-radius: 10px;
-    text-align: center;
-    color: #61A9FF;
+.colorRangTop {
+  width: 32px;
+  line-height: 32px;
+  background: #e9f3ff;
+  border: 1px solid #e9f3ff;
+  border-radius: 10px;
+  text-align: center;
+  color: #61a9ff;
 }
 
-.otmName{
-  font-family: 'Inter' sans-serif;
+.otmName {
+  font-family: "Inter" sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   color: #858585;
 }
-.otmNameInnner{
-  font-family: 'Inter' sans-serif;
+.otmNameInnner {
+  font-family: "Inter" sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: #000000;
 }
-.elips_otm{
+.elips_otm {
   display: inline-block;
   width: 12px;
-  height:12px;
-  background: #F4C10C;
+  height: 12px;
+  background: #f4c10c;
   border-radius: 50px;
   padding-right: 5px;
 }
-.elips_otm_center{
+.elips_otm_center {
   display: inline-block;
   width: 12px;
-  height:12px;
-  background: #00B533;
+  height: 12px;
+  background: #00b533;
   border-radius: 50px;
 }
-.elips_otm_all{
+.elips_otm_all {
   display: inline-block;
   width: 12px;
-  height:12px;
-  background: #1C84FF;
+  height: 12px;
+  background: #1c84ff;
   border-radius: 50px;
 }
-.otmTable tr td{
-  padding:15px;
+.otmTable tr td {
+  padding: 15px;
 }
 
-.page-link{
-  border: 1px solid #E7E7E7;
+.page-link {
+  border: 1px solid #e7e7e7;
   border-radius: 10px;
   font-weight: 500;
-  margin:10px;
-  background: #FFFFFF;
+  margin: 10px;
+  background: #ffffff;
   color: #000000 !important;
-} 
+}
 .page-item:first-child .page-link {
   border-radius: 10px !important;
 }
 .page-item:last-child .page-link {
   border-radius: 10px !important;
 }
-.TestEnter{
-  line-height:32px;
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
+.TestEnter {
+  line-height: 32px;
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
   border-radius: 40px;
   text-align: center;
   font-weight: 600;
   cursor: pointer;
 }
-.TestEnter:hover{
-  background: #1C84FF;
-  color: #FFFFFF;
+.TestEnter:hover {
+  background: #1c84ff;
+  color: #ffffff;
 }
-.UzName{
-  font-family: 'Inter' sans-serif;
+.UzName {
+  font-family: "Inter" sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 32px;
   color: #000000;
-  padding-left: 10px
+  padding-left: 10px;
 }
-.boxResultCard{
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
+.boxResultCard {
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
   border-radius: 15px;
   margin: 10px;
-  .innerCardResult{
-      padding:10px 18px;
-      .dateTitile{
-          font-family: 'Inter' sans-serif ;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 20px;
-          color: #858585;
-      }
-      .dateResult{
-          font-family: 'Inter' sans-serif ;
-          font-style: normal;
-          font-weight: 500;
-          font-size: 16px;
-          line-height: 24px;
-          color: #000000;
-      }
-      
+  .innerCardResult {
+    padding: 10px 18px;
+    .dateTitile {
+      font-family: "Inter" sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #858585;
+    }
+    .dateResult {
+      font-family: "Inter" sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000000;
+    }
   }
-  .chartResult{
-      .pie {
-          --w:300px;
-          width: var(--w);
-          aspect-ratio: 1;
-          position: relative;
-          display: inline-grid;
-          place-content: center;
-          margin: 5px;
-          font-size: 25px;
-          font-weight: bold;
-          font-family: sans-serif;
-          background: #E9F3FF;
-          border-radius: 50%;
-          }
-          .pie:before {
-              content: "";
-              position: absolute;
-              border-radius: 50%;
-              inset: 0;
-              background: conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
-              -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-                      mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
-          }
-  }
-  .ResultMore{
-      width:75%;
-      background: #FFFFFF;
-      border: 1px solid #E7E7E7;
-      border-radius: 40px;
-      text-align: center;
-      padding:14px;
+  .chartResult {
+    .pie {
+      --w: 300px;
+      width: var(--w);
+      aspect-ratio: 1;
+      position: relative;
+      display: inline-grid;
+      place-content: center;
+      margin: 5px;
+      font-size: 25px;
       font-weight: bold;
       font-family: sans-serif;
+      background: #e9f3ff;
+      border-radius: 50%;
+    }
+    .pie:before {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      inset: 0;
+      background: conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+      -webkit-mask: radial-gradient(
+        farthest-side,
+        #0000 calc(99% - var(--b)),
+        #000 calc(100% - var(--b))
+      );
+      mask: radial-gradient(
+        farthest-side,
+        #0000 calc(99% - var(--b)),
+        #000 calc(100% - var(--b))
+      );
+    }
   }
+  .ResultMore {
+    width: 75%;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 40px;
+    text-align: center;
+    padding: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+  }
+}
+
+.btn:disabled {
+  pointer-events: initial !important;
+  cursor: not-allowed !important;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
 }

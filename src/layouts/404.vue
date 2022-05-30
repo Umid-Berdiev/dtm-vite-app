@@ -11,8 +11,8 @@ const { t } = useI18n()
     <i class="bi bi-exclamation-lg" style="font-size: 2rem;"></i>
     <RouterView />
     <div>
-      <button class="btn btn-warning fs-5 mx-2 mt-4" @click="router.back()">
-        {{ t('back') }}
+      <button class="btn btn-warning fs-5 mx-2 mt-4" @click="router.push('/')">
+        {{ t('go_to_home_page') }}
       </button>
     </div>
   </main>

@@ -18,7 +18,7 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <h1>Home page</h1>
+    <h1>{{ t('Home_page') }}</h1>
   </div>
 </template>
 

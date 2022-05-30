@@ -7,9 +7,9 @@ const { t } = useI18n()
 const paymentAmount = ref<Number>()
 const paymentService = ref<String>()
 const notAllowed = computed(() => !paymentAmount.value || !paymentService.value)
-const { getUserBalance, fetchUserBalance } = useUserStore()
+const { getUserBalance, fetchUserBalance, updateUserBalance } = useUserStore()
 
-fetchUserBalance()
+// fetchUserBalance()
 </script>
 
 <template>
@@ -19,8 +19,8 @@ fetchUserBalance()
       <i class="bi bi-plus-circle-fill" style="font-size: 1.2rem;" />
       <span class="fw-bold">806000 UZS</span>
     </button>
-    <form class="dropdown-menu p-3 dropdown-menu-end" style="min-width: max-content; width: 300px;;"
-      aria-labelledby="payment-services">
+    <form class="dropdown-menu p-3 dropdown-menu-end" style="min-width: max-content; width: 300px;"
+      aria-labelledby="payment-services" @submit.prevent="updateUserBalance">
       <div class="rounded-3 bg-light payment-first-box p-3">
         <h5>{{ t("Joriy balance") }}</h5>
         <h3 class="text-success fw-bold mt-3">

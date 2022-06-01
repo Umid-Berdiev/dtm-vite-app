@@ -36,7 +36,7 @@ export default defineConfig({
         // Augment the route with meta that indicates that the route requires authentication.
         return {
           ...route,
-          meta: { requiresAuth: true },
+          meta: { ...route.meta, requiresAuth: true },
         };
       },
     }),

@@ -223,7 +223,7 @@ async function getExam() {
 
 <route lang="yaml">
 meta:
-  layout: default2
+  layout: topbar-layout
 </route>
 
 <style lang="scss" scoped>

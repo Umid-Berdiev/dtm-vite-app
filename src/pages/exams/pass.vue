@@ -228,7 +228,7 @@ function isCheckedOne(id, variant) {
 
 <route lang="yaml">
 meta:
-  layout: default2
+  layout: topbar-layout
 </route>
 
 <style lang="scss" scoped>

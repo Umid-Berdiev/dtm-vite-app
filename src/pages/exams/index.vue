@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
 import { useStore } from '~/stores/main';
-import { isEmpty } from "lodash";
 
 const mainStore = useStore()
 mainStore.fetchOtmList()
-if (!isEmpty(mainStore.selectedOtm)) {
+if (!_.isEmpty(mainStore.selectedOtm)) {
   mainStore.fetchDirectionsList()
 }
 mainStore.fetchSubjectsList()
@@ -119,7 +115,7 @@ async function goNext() {
       </div>
       <div class="d-grid">
         <button class="btn btn-primary text-white rounded-pill" type="button" @click="goNext"
-          :disabled="isEmpty(selectedSubject1) && isEmpty(selectedSubject2)">
+          :disabled="_.isEmpty(selectedSubject1) && _.isEmpty(selectedSubject2)">
           {{ t("Testni topshirish") }}
         </button>
       </div>

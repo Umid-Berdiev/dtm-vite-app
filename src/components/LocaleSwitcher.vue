@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 
-const { locale, t, availableLocales } = useI18n()
+const { locale, availableLocales } = useI18n()
 
 const changeLocale = (event: any) => {
   locale.value = event.target.value

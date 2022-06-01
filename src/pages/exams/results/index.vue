@@ -1,7 +1,5 @@
 <script  setup lang="ts">
-import { computed, onMounted } from "vue";
-import { useRouter } from 'vue-router';
-import { useI18n } from 'vue-i18n';
+import RadialProgressBar from "vue3-radial-progress";
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
 import { useStore } from '~/stores/main';
@@ -18,12 +16,12 @@ onMounted(async () => {
   await mainStore.fetchExamResults()
 })
 
-function goTo(examID) {
+function goTo(examID: number) {
   if (examID)
     router.push(`/exams/results/${encodeURIComponent(examID)}`)
 }
 
-function examTimeDuration(start_time, end_time) {
+function examTimeDuration(start_time: string, end_time: string) {
   const st = Date.parse(start_time)
   const et = Date.parse(end_time)
   return moment.duration(et - st).format('hh:mm:ss')
@@ -62,14 +60,23 @@ function examTimeDuration(start_time, end_time) {
                 </div>
               </div>
               <div class="d-flex justify-content-center my-4">
-                <div class="chartResult">
+                <radial-progress-bar :diameter="300" :completed-steps="item.score_total" :total-steps="189"
+                  :strokeWidth="12" :innerStrokeWidth="12" startColor="#1C84FF" endColor="#1C84FF"
+                  innerStrokeColor="#E9F3FF">
+                  <!-- Your inner content here -->
+                  <span class="text-secondary">{{ t('total_score') }}</span>
+                  <h3>
+                    <strong>
+                      {{ item.score_total }} {{ t('score') }}
+                    </strong>
+                  </h3>
+                </radial-progress-bar>
+
+                <!-- <div class="chartResult">
                   <div class="pie innerCardResult" style="--p:75;--b:10px;--c:#1C84FF;">
-                    <div class="dateTitile text-center pb-2">Umumiy bal</div>
-                    <div class="dateResult" style="font-size:30px"><strong>{{ item.score_total.toFixed(2) }}
-                        ball</strong>
-                    </div>
+                    <div class="dateTitile text-center pb-2">{{ t('total_score') }}</div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <!-- <div class="d-flex justify-content-center my-5">
                 <button class="btn btn-outline-primary rounded-pill btn-block" type="button" @click="test">{{ t('more')
@@ -90,6 +97,7 @@ function examTimeDuration(start_time, end_time) {
         </div>
       </div>
     </div>
+
     <!-- loading state via #fallback slot -->
     <template #fallback>
       Loading...
@@ -108,7 +116,7 @@ function examTimeDuration(start_time, end_time) {
     padding: 10px 18px;
 
     .dateTitile {
-      font-family: 'Inter'sans-serif;
+      font-family: 'Inter' sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 14px;
@@ -117,7 +125,7 @@ function examTimeDuration(start_time, end_time) {
     }
 
     .dateResult {
-      font-family: 'Inter'sans-serif;
+      font-family: 'Inter' sans-serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;

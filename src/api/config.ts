@@ -1,17 +1,11 @@
-import { useStorage } from "@vueuse/core";
-import { ref } from "vue";
 import { useToast } from "vue-toastification";
 
 const toast = useToast();
-const token = ref("");
 
-export const setToken = (value) => {
-  token.value = value;
-  useStorage("token", value);
-};
-
-export const getToken = () => token.value || useStorage("token", "");
-export const errorHandler = (err, { url, method, headers, params, data }) => {
+export const errorHandler = (
+  err: any,
+  { url, method, headers, params, data }: any
+) => {
   // do smth to inform user about error
-  toast.error(data);
+  toast.error(err.message);
 };

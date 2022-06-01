@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref } from 'vue';
-import { isEmpty } from "lodash";
+import { Modal } from "bootstrap";
+import { useStore } from '~/stores/main';
 import moment from "moment";
 import momentDurationFormatSetup from "moment-duration-format";
-import BlackWhiteLogo from '~/components/icons/logos/BlackWhiteLogo.vue';
-import { useStore } from '~/stores/main';
-import { useI18n } from 'vue-i18n';
-import { Modal } from "bootstrap";
-import { useRouter } from 'vue-router';
 
 const router = useRouter()
 const mainStore = useStore()
@@ -46,7 +41,7 @@ function getQuestionsList(subject: any) {
 async function stopExamProcess() {
   mainStore.finishExam()
   modal.value.hide()
-  router.push('/exams')
+  router.push(`/exams/results/${encodeURIComponent(mainStore.getExam.id)}`)
 }
 
 async function handleUserVariant(event, obj) {
@@ -110,7 +105,7 @@ function isCheckedOne(id, variant) {
       </div>
     </header>
 
-    <template v-if="!isEmpty(selectedSubject)">
+    <template v-if="!_.isEmpty(selectedSubject)">
       <div class="container-fluid">
         <div class="container py-4">
           <div class="row justify-content-center">
@@ -231,13 +226,18 @@ function isCheckedOne(id, variant) {
   </div>
 </template>
 
+<route lang="yaml">
+meta:
+  layout: default2
+</route>
+
 <style lang="scss" scoped>
 .q-btn {
   min-width: 43.25px;
   background: #FFFFFF;
   border: 1px solid #E7E7E7;
   border-radius: 10px;
-  font-family: 'Inter'sans-serif;
+  font-family: 'Inter' sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -259,7 +259,7 @@ function isCheckedOne(id, variant) {
 
 .dateStyle {
   width: 200px;
-  font-family: 'Inter'sans-serif;
+  font-family: 'Inter' sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -286,7 +286,7 @@ function isCheckedOne(id, variant) {
 
 #FanNameWithBall {
   span {
-    font-family: 'Inter'sans-serif;
+    font-family: 'Inter' sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -296,7 +296,7 @@ function isCheckedOne(id, variant) {
 }
 
 .question {
-  font-family: 'Inter'sans-serif;
+  font-family: 'Inter' sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
@@ -322,7 +322,7 @@ function isCheckedOne(id, variant) {
   padding: 15px;
   width: 100%;
   cursor: pointer;
-  font-family: 'Inter'sans-serif;
+  font-family: 'Inter' sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -331,7 +331,7 @@ function isCheckedOne(id, variant) {
 }
 
 .answerText {
-  font-family: 'Inter'sans-serif;
+  font-family: 'Inter' sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -339,8 +339,3 @@ function isCheckedOne(id, variant) {
   color: #1C84FF;
 }
 </style>
-
-<route lang="yaml">
-meta:
-  layout: default2
-</route>

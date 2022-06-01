@@ -19,38 +19,17 @@ function apiLogin(a: string, p: string) {
 export const useUserStore = defineStore({
   id: "user",
   state: () => ({
-    name: "Eduardo",
-    isAdmin: true,
+    user: useStorage("user", {
+      email: "",
+      balance: 0,
+    }),
   }),
 
   getters: {
-    getUserBalance: (state) => {},
+    getUserBalance: (state) => state.user.balance,
   },
 
   actions: {
-    logout() {
-      this.$patch({
-        name: "",
-        isAdmin: false,
-      });
-
-      // we could do other stuff like redirecting the user
-    },
-
-    /**
-     * Attempt to login a user
-     * @param {string} user
-     * @param {string} password
-     */
-    async login(user: string, password: string) {
-      const userData = await apiLogin(user, password);
-
-      this.$patch({
-        name: user,
-        ...userData,
-      });
-    },
-
     async fetchUserBalance() {
       try {
         //   const res = makeRequest({
@@ -61,6 +40,7 @@ export const useUserStore = defineStore({
         throw error;
       }
     },
+
     async updateUserBalance() {
       try {
         //   const res = makeRequest({

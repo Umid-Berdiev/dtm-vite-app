@@ -1,30 +1,38 @@
 import makeRequest from "../makeRequest.js";
 
-export const login = async ({ username, password }) => {
+const token = useStorage("accessToken", "");
+
+export const login = async (payload: any) => {
   try {
     const res = await makeRequest({
-      url: "/api/users/register",
+      url: "/api/login",
       method: "post",
-      data: {
-        username,
-        password,
-      },
+      data: payload,
     });
 
-    useStorage("token", res.data.token);
-  } catch (err) {
-    if (err.message === "WRONG_PASSWORD") {
-      //
-    }
+    const { email, accessToken } = res.data;
+
+    if (accessToken) {
+      token.value = accessToken;
+      return { email };
+    } else throw new Error("Auth failed");
+  } catch (error: any) {
+    console.log("Error while logout user: ", error.message);
+    throw error;
   }
 };
 
 export const logout = async () => {
-  await makeRequest({
-    url: "/api/auth/logout",
-    method: "post",
-    headers: { authorization: true },
-  });
+  try {
+    await makeRequest({
+      url: "/api/logout",
+      method: "post",
+      headers: { authorization: true },
+    });
 
-  useStorage("token", "");
+    token.value = "";
+  } catch (error: any) {
+    console.log("Error while logout user: ", error.message);
+    throw error;
+  }
 };

@@ -1,3 +1,6 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div class="container-fluid">
     <div class="row">
@@ -100,14 +103,7 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
-table {
-}
-
 thead {
   border-bottom: none !important;
 }

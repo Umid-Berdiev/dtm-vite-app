@@ -15,6 +15,7 @@ const locale = "uz";
 export const useStore = defineStore("main", {
   state: () => ({
     otmList: [],
+    otmPaginatedList: [],
     directionsList: [],
     subjectsList: [],
     selectedOtm: useStorage("selectedOtm", {}),
@@ -32,6 +33,7 @@ export const useStore = defineStore("main", {
 
   getters: {
     getOtmList: (state) => state.otmList,
+    getOtmPaginatedList: (state) => state.otmPaginatedList,
     getDirectionsList: (state) => state.directionsList,
     getSubjectsList: (state) => state.subjectsList,
     getSelectedOtm: (state) => state.selectedOtm,
@@ -50,12 +52,24 @@ export const useStore = defineStore("main", {
       try {
         const res = await makeRequest({
           url: `/api/higher_educational_institutions/all`,
-          params: {
-            locale,
-          },
           headers: { authorization: true },
         });
         this.otmList = res.data;
+      } catch (err: any) {
+        console.log("error while fetching Otm: ", err.message);
+        toast.error("error while fetching Otm: " + err.message);
+        throw err;
+      }
+    },
+
+    async fetchOtmPaginatedList(payload: any) {
+      try {
+        const res = await makeRequest({
+          url: `/api/higher_educational_institutions`,
+          params: payload,
+          headers: { authorization: true },
+        });
+        this.otmPaginatedList = res.data;
       } catch (err: any) {
         console.log("error while fetching Otm: ", err.message);
         toast.error("error while fetching Otm: " + err.message);

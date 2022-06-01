@@ -1,21 +1,21 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import BlackWhiteLogo from './icons/logos/BlackWhiteLogo.vue';
-import BrainLogo from './icons/logos/BrainLogo.vue';
-import CustomSelect from './form/selects/CustomSelect.vue';
-import PaymentServices from './dropdowns/PaymentServices.vue';
-import LocaleSwitcher from './LocaleSwitcher.vue';
+import { logout } from '~/api';
 
 const { t } = useI18n()
+const router = useRouter()
 
 const options = ref([
   {
     value: 1,
-    label: t('Abituriyentlar uchun test savollari'),
+    label: t('exam_questions_for_enrollees'),
   },
 ])
+
+async function onLogout() {
+  await logout()
+  router.push('/auth/login')
+}
+
 </script>
 
 <template>
@@ -35,6 +35,8 @@ const options = ref([
       </div>
       <div class="d-flex gap-3 align-items-center">
         <!-- <LocaleSwitcher /> -->
+        <button class="btn btn-outline-secondary rounded-pill me-3" type="button" @click="onLogout">{{ t('logout')
+        }}</button>
         <i class="bi bi-bell-fill" style="font-size: 1.2rem;" />
         <PaymentServices />
       </div>

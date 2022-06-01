@@ -3,7 +3,7 @@ import { markRaw } from "vue";
 import { useRouter } from "vue-router";
 import { type UserModule } from "../types";
 
-const router = useRouter();
+// const router = useRouter();
 
 // Setup Pinia
 // https://pinia.esm.dev/

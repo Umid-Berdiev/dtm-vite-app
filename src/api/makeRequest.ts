@@ -1,5 +1,5 @@
 import axios from "axios";
-import { errorHandler, getToken } from "./config";
+import { errorHandler } from "./config";
 // import { useAxios } from "@vueuse/integrations/useAxios";
 
 export default async ({
@@ -10,7 +10,8 @@ export default async ({
   data = {},
 }) => {
   if (headers && headers.authorization) {
-    headers.authorization = "Bearer " + getToken.value;
+    const token = useStorage("accessToken", "");
+    headers.authorization = "Bearer " + token.value;
   }
 
   try {

@@ -1,44 +1,37 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-import ColumnsGapIcon from './icons/sidebar/ColumnsGapIcon.vue';
-import DtmIcon from './icons/sidebar/DtmIcon.vue';
-import SwordsIcon from './icons/sidebar/SwordsIcon.vue';
-import PeopleRoundedIcon from './icons/sidebar/PeopleRoundedIcon.vue';
-import NotesIcon from './icons/sidebar/NotesIcon.vue';
-
 const { t } = useI18n()
 </script>
 
 <template>
   <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-flex sidebar collapse border-right px-0">
-    <div class="bg-light" style="width: 4.5rem">
-      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+    <div class="bg-light px-2 pt-3 border-end">
+      <ul class="nav nav-pills nav-flush flex-column mb-auto text-center gap-3">
         <li class="nav-item">
-          <a href="https://app.inbrain.uz/user" class="nav-link py-3 " aria-current="page" :title="t('Bosh sahifa')"
+          <a href="https://app.inbrain.uz/user" class="nav-link" aria-current="page" :title="t('home_page')"
             data-bs-toggle="tooltip" data-bs-placement="right">
             <ColumnsGapIcon />
           </a>
         </li>
         <li>
-          <a href="https://app.inbrain.uz/course-tariffs" class="nav-link py-3" :title="t('Kurs tariflari')"
+          <a href="https://app.inbrain.uz/course-tariffs" class="nav-link" :title="t('course_tariffs')"
             data-bs-toggle="tooltip" data-bs-placement="right">
             <DtmIcon />
           </a>
         </li>
         <li>
-          <a href="https://app.inbrain.uz/competition" class="nav-link py-3 " :title="t('Musobaqa')"
+          <a href="https://app.inbrain.uz/competition" class="nav-link" :title="t('competition')"
             data-bs-toggle="tooltip" data-bs-placement="right">
             <SwordsIcon />
           </a>
         </li>
         <li>
-          <a href="https://app.inbrain.uz/forum/news" class="nav-link py-3 " :title="t('Forum')"
-            data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="https://app.inbrain.uz/forum/news" class="nav-link" :title="t('forum')" data-bs-toggle="tooltip"
+            data-bs-placement="right">
             <PeopleRoundedIcon />
           </a>
         </li>
         <li>
-          <a href="https://app.inbrain.uz/posts" class="nav-link py-3 " :title="t('Post')" data-bs-toggle="tooltip"
+          <a href="https://app.inbrain.uz/posts" class="nav-link" :title="t('posts')" data-bs-toggle="tooltip"
             data-bs-placement="right">
             <NotesIcon />
           </a>
@@ -46,36 +39,36 @@ const { t } = useI18n()
       </ul>
     </div>
 
-    <div class="position-sticky pt-3 w-100">
+    <div class="position-sticky pt-3 w-100 border-end">
       <ul class="nav flex-column">
         <li class="nav-item active">
           <RouterLink class="nav-link" to="/exams">
-            {{ t("Imtixon topshirish") }}
+            {{ t("pass_exam") }}
           </RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/exams/results">
-            {{ t("Imtihon natijalari") }}
+            {{ t("exam_results") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/otmga-kirish-ballari">
-            {{ t("OTMga kirish ballari") }}
+          <RouterLink class="nav-link" to="/otm/entrance-exam-scores">
+            {{ t("hei_entry_scores") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/otm-level">
-            {{ t("OTM reytingi") }}
+          <RouterLink class="nav-link" to="/otm/ratings">
+            {{ t("hei_ratings") }}
           </RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/news">
-            {{ t("Yangiliklar") }}
+            {{ t("news") }}
           </RouterLink>
         </li>
         <li class="nav-item">
           <RouterLink class="nav-link" to="/statistics">
-            {{ t("Statistika") }}
+            {{ t("statistics") }}
           </RouterLink>
         </li>
       </ul>

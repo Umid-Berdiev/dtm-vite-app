@@ -4,8 +4,11 @@ import Vue from "@vitejs/plugin-vue";
 import Pages from "vite-plugin-pages";
 import generateSitemap from "vite-ssg-sitemap";
 import Layouts from "vite-plugin-vue-layouts";
+import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
 import VueI18n from "@intlify/vite-plugin-vue-i18n";
 import Inspect from "vite-plugin-inspect";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,10 +27,55 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ["vue"],
+      extendRoute(route, parent) {
+        if (route.path.startsWith("/auth")) {
+          // Index is unauthenticated.
+          return route;
+        }
+
+        // Augment the route with meta that indicates that the route requires authentication.
+        return {
+          ...route,
+          meta: { requiresAuth: true },
+        };
+      },
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
+
+    // https://github.com/antfu/unplugin-auto-import
+    AutoImport({
+      imports: [
+        "vue",
+        "vue-router",
+        "vue-i18n",
+        "vue/macros",
+        "@vueuse/head",
+        "@vueuse/core",
+        // "lodash",
+        {
+          lodash: [
+            // default imports
+            ["*", "_"], // import { * as _ } from 'lodash',
+          ],
+        },
+      ],
+      resolvers: [ElementPlusResolver()],
+      // dirs: ["./composables", "./pages", "./stores"],
+      vueTemplate: true,
+      dts: "src/auto-imports.d.ts",
+    }),
+
+    // https://github.com/antfu/unplugin-vue-components
+    Components({
+      // allow auto load markdown components under `./src/components/`
+      extensions: ["vue"],
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/],
+      dts: "src/components.d.ts",
+      resolvers: [ElementPlusResolver()],
+    }),
 
     VueI18n({
       runtimeOnly: true,

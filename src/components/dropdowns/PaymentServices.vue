@@ -22,13 +22,13 @@ const { getUserBalance, fetchUserBalance, updateUserBalance } = useUserStore()
     <form class="dropdown-menu p-3 dropdown-menu-end" style="min-width: max-content; width: 300px;"
       aria-labelledby="payment-services" @submit.prevent="updateUserBalance">
       <div class="rounded-3 bg-light payment-first-box p-3">
-        <h5>{{ t("Joriy balance") }}</h5>
+        <h5>{{ t("current_balance") }}</h5>
         <h3 class="text-success fw-bold mt-3">
           {{ 806000 + ' UZS' }}
         </h3>
       </div>
       <div class="my-4 input-wrapper">
-        <input v-model="paymentAmount" type="number" class="w-100" :placeholder="t('To\'lov miqdori')">
+        <input v-model="paymentAmount" type="number" class="w-100" :placeholder="t('payment_amount')">
       </div>
       <div class="row row-cols-1 row-cols-md-3 g-3">
         <div class="col">
@@ -66,7 +66,7 @@ const { getUserBalance, fetchUserBalance, updateUserBalance } = useUserStore()
         </div>
       </div>
       <button type="submit" class="btn btn-outline-dark rounded-pill mt-3 submit-btn" :disabled="notAllowed">
-        {{ t("Balansni to'ldirish") }}
+        {{ t("balance_replenishment") }}
       </button>
     </form>
   </div>

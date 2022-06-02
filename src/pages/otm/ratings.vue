@@ -1,120 +1,84 @@
 <script setup lang="ts">
+import { fetchRegions } from '~/api';
+import { useStore } from '~/stores/main'
+
+const mainStore = useStore()
+const { t } = useI18n()
+const regions = reactive([])
+const laravelData = computed(() => mainStore.getOtmPaginatedList)
+
+onMounted(async () => {
+  await getResults()
+  const res = await fetchRegions()
+  Object.assign(regions, res)
+})
+
+// Our method to GET results from a Laravel endpoint
+async function getResults(page = 1) {
+  await mainStore.fetchOtmPaginatedList({ page })
+}
 </script>
 
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-9 mt-5">
+      <div class="col-12 mt-5">
         <form action="">
           <div class="row d-flex justify-content-start">
-            <div class="form-group col-md-3">
-              <select name="" class="form-select rounded-pil" id="otm_enter_select">
-                <option value="" selected><b>O'quv yili</b></option>
-                <option value="">2019-2020</option>
-                <option value="">2020-2021</option>
-                <option value="">2021-2022</option>
-                <option value="">2022-2023</option>
-              </select>
+            <div class="form-group col-auto">
+              <AcademicYearSelect />
             </div>
           </div>
         </form>
       </div>
-      <div class="col-md-12">
-        <div class="table-responsive box mt-3">
+    </div>
+    <div class="row my-3">
+      <div class="col-12">
+        <div class="table-responsive box">
           <table class="w-100">
-            <thead class="HerderTable " >
-            <tr>
-              <th scope="col">
-                <div class="otmName">№</div>
-              </th>
-              <th scope="col">
-                <div class="otmName">Oliy ta’lim muassasalari</div>
-              </th>
-              <th scope="col">
-                <span class="otmName"></span>
-              </th>
-            </tr>
+            <thead class="bg-light text-secondary">
+              <tr>
+                <td class="p-3">
+                  <span>№</span>
+                </td>
+                <td class="p-3">
+                  <span>Oliy ta’lim muassasalari</span>
+                </td>
+                <td class="p-3">
+                  <span></span>
+                </td>
+              </tr>
             </thead>
-            <tbody class="otmTable box">
-            <tr>
-              <td scope="row">
-                <div class="NomerBox">1</div>
-              </td>
-              <td scope="row">
+            <tbody class="">
+              <tr v-for="hei, heiIndex in laravelData.data" class="border-top">
+                <td class="p-3">
+                  <span class="NomerBox py-1 px-2">{{ heiIndex + 1 }}</span>
+                </td>
+                <td class="p-3">
                   <span class="otmNameInnner">
-                      Toshkent irrigatsiya va qishloq XMMI
+                    {{ hei.title }}
                   </span>
-              </td>
-              <td class="fw1 text-end">
-                <span><img src="src/assets/images/top.png" alt="" srcset=""></span>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <div class="colorRangBotm">2</div>
-              </td>
-              <td scope="row">
-                  <span class="otmNameInnner">
-                      O‘zbekiston milliy universiteti
-                  </span>
-              </td>
-              <td class="fw1 text-end">
-                <span><img src="src/assets/images/bottom.png" alt="" srcset=""></span>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <div class="NomerBox colorRangTop">3</div>
-              </td>
-              <td scope="row">
-                  <span class="otmNameInnner">
-                      Toshkent davlat o‘abek tili va adabiyoti universiteti
-                  </span>
-              </td>
-              <td class="fw1 text-end">
-                <span><img src="src/assets/images/revyu.png" alt="" srcset=""></span>
-              </td>
-            </tr>
+                </td>
+                <td class="fw1">
+                  <span><img src="/src/assets/images/top.png" /></span>
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <div class="col-md-12">
-        <nav style="float:right;">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <img src="src/assets/images/left.png" alt="">
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">...</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <img src="src/assets/images/right.png" alt="">
-              </a>
-            </li>
-          </ul>
-        </nav>
+    </div>
+    <div class="row">
+      <div class="col-auto ms-auto">
+        <CustomPagination :laravel-data="laravelData" @get-results="getResults" />
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-thead {
-  border-bottom: none !important;
-}
-
-.otmTable tr {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+table tbody tr:hover {
   cursor: pointer;
+  background-color: #F8F9FA;
 }
-
-.otmTable tr:hover {
-  background-color: #F9F9F9;
-}
-
 </style>

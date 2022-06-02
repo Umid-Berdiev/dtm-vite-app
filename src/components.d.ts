@@ -5,12 +5,14 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AcademicYearSelect: typeof import('./components/form/selects/AcademicYearSelect.vue')['default']
     AuthHeader: typeof import('./components/AuthHeader.vue')['default']
     BlackWhiteLogo: typeof import('./components/icons/logos/BlackWhiteLogo.vue')['default']
     Box: typeof import('./components/Box.vue')['default']
     BrainLogo: typeof import('./components/icons/logos/BrainLogo.vue')['default']
     ColumnsGapIcon: typeof import('./components/icons/sidebar/ColumnsGapIcon.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
+    CustomPagination: typeof import('./components/CustomPagination.vue')['default']
     CustomSelect: typeof import('./components/form/selects/CustomSelect.vue')['default']
     DtmIcon: typeof import('./components/icons/sidebar/DtmIcon.vue')['default']
     Footer: typeof import('./components/Footer.vue')['default']

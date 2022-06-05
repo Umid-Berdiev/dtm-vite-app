@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import { fetchRegions } from '~/api';
 import { useStore } from '~/stores/main'
-import CustomPagination from '~/components/CustomPagination.vue';
 
 const mainStore = useStore()
 const router = useRouter()
 const { t } = useI18n()
-const regions = reactive([])
 const laravelData = computed(() => mainStore.getOtmPaginatedList)
 
 onMounted(async () => {
   await getResults()
-  const res = await fetchRegions()
-  Object.assign(regions, res)
 })
 
-function goTo(id) {
+function goTo(id: number) {
   router.push(`/otm/entrance-exam-scores/${encodeURIComponent(id)}`)
 }
 
@@ -23,46 +18,32 @@ function goTo(id) {
 async function getResults(page = 1) {
   await mainStore.fetchOtmPaginatedList({ page })
 }
+
+async function onFilter(event: any) {
+  const values = event.target.value
+  console.log({ values });
+
+}
 </script>
 
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 mt-5">
-        <form action="">
-          <div class="row">
-            <div class="form-group col-md-3">
-              <select name="region" class="form-select rounded-pill" :placeholder="t('select_region')">
-                <option v-for="region in regions" :value="region.soato">
-                  {{ region.name }}
-                </option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <select name="" class="form-select rounded-pill">
-                <option value="" selected><b>Ta'lim shakli</b></option>
-                <option value="">Sirtqi</option>
-                <option value="">Kechki</option>
-                <option value="">Kundizgi</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <select name="" class="form-select rounded-pill">
-                <option value="" selected><b>Ta'lim tili</b></option>
-                <option value="">O'zbekcha</option>
-                <option value="">Qoraqolpoqcha</option>
-                <option value="">Ruscha</option>
-              </select>
-            </div>
-            <div class="form-group col-auto">
-              <AcademicYearSelect />
-            </div>
-          </div>
-        </form>
+    <div class="row mt-5">
+      <div class="form-group col-auto">
+        <RegionSelect @change="onFilter" />
+      </div>
+      <div class="form-group col-auto">
+        <EducationFormSelect />
+      </div>
+      <div class="form-group col-auto">
+        <EducationLanguageSelect />
+      </div>
+      <div class="form-group col-auto">
+        <AcademicYearSelect />
       </div>
     </div>
     <div class="row">
-      <div class="col-12 my-3">
+      <div class="col my-3">
         <div class="table-responsive box">
           <table class="w-100">
             <thead class="bg-light text-secondary">
@@ -105,6 +86,8 @@ async function getResults(page = 1) {
           </table>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-auto ms-auto">
         <CustomPagination :laravel-data="laravelData" @get-results="getResults" />
       </div>

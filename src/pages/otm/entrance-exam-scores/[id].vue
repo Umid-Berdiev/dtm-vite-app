@@ -16,7 +16,7 @@ async function getResults(page = 1) {
 
 <template>
   <div class="container-fluid">
-    <div class="row pt-5">
+    <div class="row mt-5">
       <div class="col-auto">
         <div class="backBlock d-flex align-items-center">
           <div><img src="/src/assets/images/back.png" srcset=""></div>
@@ -24,29 +24,13 @@ async function getResults(page = 1) {
         </div>
       </div>
       <div class="col-auto ms-auto">
-        <form action="">
-          <div class="row d-flex justify-content-end">
-            <div class="form-group col-auto">
-              <select name="" class="form-select rounded-pill">
-                <option value="" selected><b>Ta'lim shakli</b></option>
-                <option value="">Sirtqi</option>
-                <option value="">Kechki</option>
-                <option value="">Kundizgi</option>
-              </select>
-            </div>
-            <div class="form-group col-auto">
-              <select name="" class="form-select rounded-pill">
-                <option value="" selected><b>Ta'lim tili</b></option>
-                <option value="">O'zbekcha</option>
-                <option value="">Qoraqolpoqcha</option>
-                <option value="">Ruscha</option>
-              </select>
-            </div>
-            <div class="form-group col-auto">
-              <AcademicYearSelect />
-            </div>
-          </div>
-        </form>
+        <EducationFormSelect />
+      </div>
+      <div class="col-auto">
+        <EducationLanguageSelect />
+      </div>
+      <div class="col-auto">
+        <AcademicYearSelect />
       </div>
     </div>
     <div class="row my-3">
@@ -85,7 +69,7 @@ async function getResults(page = 1) {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3 p-3">
-                  <div class="TestEnter">Testni topshirish</div>
+                  <button class="btn btn-outline-primary rounded-pill">{{ t('pass_exam') }}</button>
                 </td>
               </tr>
               <tr class="border-top">
@@ -101,7 +85,7 @@ async function getResults(page = 1) {
                   <span><span class="elips_otm_center"></span> 132,6</span>
                 </td>
                 <td class="fw3 p-3">
-                  <div class="TestEnter">Testni topshirish</div>
+                  <button class="btn btn-outline-primary rounded-pill">{{ t('pass_exam') }}</button>
                 </td>
               </tr>
             </tbody>

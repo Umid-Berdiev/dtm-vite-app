@@ -22,8 +22,8 @@ axios.interceptors.response.use(undefined, async function (error) {
       //   localStorage.removeItem('token');
       //   localStorage.removeItem('required_details');
       // }
-      // localStorage.setItem("accessToken", "");
-      // location.replace("/auth/login");
+      localStorage.setItem("accessToken", "");
+      location.replace("/auth/login");
     }
     throw error;
   }

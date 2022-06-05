@@ -57,7 +57,7 @@ export const useStore = defineStore("main", {
         this.otmList = res.data;
       } catch (err: any) {
         console.log("error while fetching Otm: ", err.message);
-        toast.error("error while fetching Otm: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -72,7 +72,7 @@ export const useStore = defineStore("main", {
         this.otmPaginatedList = res.data;
       } catch (err: any) {
         console.log("error while fetching Otm: ", err.message);
-        toast.error("error while fetching Otm: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -89,7 +89,7 @@ export const useStore = defineStore("main", {
         this.subjectsList = res.data;
       } catch (err: any) {
         console.log("error while fetching subjects: ", err.message);
-        toast.error("error while fetching subjects: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -106,7 +106,7 @@ export const useStore = defineStore("main", {
         this.selectedSubjects = res.data;
       } catch (err: any) {
         console.log("error while fetching subjects: ", err.message);
-        toast.error("error while fetching subjects: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -123,7 +123,7 @@ export const useStore = defineStore("main", {
         this.directionsList = res.data;
       } catch (err: any) {
         console.log("error while fetching directions: ", err.message);
-        toast.error("error while fetching directions: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -164,7 +164,7 @@ export const useStore = defineStore("main", {
         // useStorage("exam", await res.data.exam);
       } catch (error: any) {
         console.log("error while fetching directions: ", error.message);
-        toast.error("error while fetching directions: " + error.message);
+        toast.error(error.message);
         throw error;
       }
     },
@@ -181,7 +181,7 @@ export const useStore = defineStore("main", {
         // toast.success("Data received successfully!");
       } catch (err: any) {
         console.log("Error while fetching results: ", err.message);
-        toast.error("Error while fetching results: ", err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -195,7 +195,7 @@ export const useStore = defineStore("main", {
         this.exam = res.data;
       } catch (err: any) {
         console.log("error while fetching directions: ", err.message);
-        toast.error("error while fetching directions: " + err.message);
+        toast.error(err.message);
         throw err;
       }
     },
@@ -245,7 +245,7 @@ export const useStore = defineStore("main", {
         this.userVariants = [];
       } catch (error: any) {
         console.log("Error while ending exam: ", error.message);
-        toast.error("Error while ending exam: " + error.message);
+        toast.error(error.message);
         throw error;
       }
       // this.$router.push("/exam-results");

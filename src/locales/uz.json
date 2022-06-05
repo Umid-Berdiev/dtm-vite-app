@@ -26,5 +26,8 @@
   "posts": "Postlar",
   "logout": "Chiqish",
   "select_region": "Hududni tanlang",
-  "Kirishiz mumkin bo‘lgan oliygohlar": "Kirishiz mumkin bo‘lgan oliygohlar"
+  "Kirishiz mumkin bo‘lgan oliygohlar": "Kirishiz mumkin bo‘lgan oliygohlar",
+  "select_edu_season": "O'quv mavsumini tanlang",
+  "select_edu_form": "Ta'lim shaklini tanlang",
+  "select_edu_lang": "Ta'lim tilini tanlang"
 }

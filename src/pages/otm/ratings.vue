@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { fetchRegions } from '~/api';
-import { useStore } from '~/stores/main'
+import { fetchRegions, filterOtmByYear } from '~/api';
 
-const mainStore = useStore()
 const { t } = useI18n()
 const regions = reactive([])
-const laravelData = computed(() => mainStore.getOtmPaginatedList)
+const laravelData = ref([])
+// const laravelData = computed(() => mainStore.getOtmPaginatedList)
 
 onMounted(async () => {
   await getResults()
@@ -15,21 +14,24 @@ onMounted(async () => {
 
 // Our method to GET results from a Laravel endpoint
 async function getResults(page = 1) {
-  await mainStore.fetchOtmPaginatedList({ page })
+  const res = await filterOtmByYear({ page })
+  laravelData.value = res
 }
+
+async function onYearChange(event: any) {
+  const year = event.target.value
+  const res = await filterOtmByYear({ page: 1, year })
+  laravelData.value = res
+}
+
 </script>
+
 
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 mt-5">
-        <form action="">
-          <div class="row d-flex justify-content-start">
-            <div class="form-group col-auto">
-              <AcademicYearSelect />
-            </div>
-          </div>
-        </form>
+    <div class="row mt-5">
+      <div class="col-auto">
+        <AcademicYearSelect @change.prevent="onYearChange" />
       </div>
     </div>
     <div class="row my-3">
@@ -60,7 +62,9 @@ async function getResults(page = 1) {
                   </span>
                 </td>
                 <td class="fw1">
-                  <span><img src="/src/assets/images/top.png" /></span>
+                  <span v-if="hei.rating?.status === 'up'"><img src="/src/assets/images/top.png" /></span>
+                  <span v-if="hei.rating?.status === 'down'"><img src="/src/assets/images/bottom.png" /></span>
+                  <span v-else><img src="/src/assets/images/revyu.png" /></span>
                 </td>
               </tr>
             </tbody>

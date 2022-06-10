@@ -49,7 +49,7 @@ function examTimeDuration(start_time: string, end_time: string) {
               </div>
               <div v-if="item.hei_id" class="d-flex justify-content-start innerCardResult">
                 <div>
-                  <div class="dateTitile">{{ t('otm') }}:</div>
+                  <div class="dateTitile">{{ t('hei') }}:</div>
                   <div class="dateResult">{{ item.hei.title }}</div>
                 </div>
               </div>

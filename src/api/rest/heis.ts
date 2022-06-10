@@ -26,16 +26,16 @@ export const fetchEducationLanguages = async () => {
   }
 };
 
-export const filterOtmByYear = async (params: any) => {
+export const filterHeiByYear = async (params: any) => {
   try {
     const res = await makeRequest({
-      url: `/api/otm/filter`,
+      url: `/api/heis/filter`,
       params,
       headers: { authorization: true },
     });
     return res.data;
   } catch (err: any) {
-    console.log("Error while fetching education languages: ", err.message);
+    console.log("Error while fetching filtered heis: ", err.message);
     throw err;
   }
 };

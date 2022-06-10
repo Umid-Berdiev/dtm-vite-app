@@ -1,6 +1,5 @@
 import axios from "axios";
 import { errorHandler } from "./config";
-// import { useAxios } from "@vueuse/integrations/useAxios";
 
 export default async ({
   url = "/",

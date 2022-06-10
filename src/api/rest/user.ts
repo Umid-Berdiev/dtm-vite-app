@@ -9,6 +9,6 @@ export const user = async () => {
 
     return res.data;
   } catch (err) {
-    return console.log("error while fetching user: ", err);
+    return console.log("Error while fetching user: ", err);
   }
 };

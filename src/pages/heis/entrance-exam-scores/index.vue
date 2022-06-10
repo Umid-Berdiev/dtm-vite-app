@@ -4,7 +4,7 @@ import { useStore } from '~/stores/main'
 const mainStore = useStore()
 const router = useRouter()
 const { t } = useI18n()
-const laravelData = computed(() => mainStore.getOtmPaginatedList)
+const laravelData = computed(() => mainStore.getHeiPaginatedList)
 
 onMounted(async () => {
   await getResults()
@@ -12,12 +12,12 @@ onMounted(async () => {
 
 function goTo(id: number) {
 
-  router.push(`/otm/entrance-exam-scores/${encodeURIComponent(id)}`)
+  router.push(`/heis/entrance-exam-scores/${encodeURIComponent(id)}`)
 }
 
 // Our method to GET results from a Laravel endpoint
 async function getResults(page = 1) {
-  await mainStore.fetchOtmPaginatedList({ page })
+  await mainStore.fetchHeiPaginatedList({ page })
 }
 
 async function onFilter(event: any) {

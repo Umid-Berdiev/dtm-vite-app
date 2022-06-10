@@ -2,8 +2,8 @@
 import { useStore } from '~/stores/main';
 
 const mainStore = useStore()
-mainStore.fetchOtmList()
-if (!_.isEmpty(mainStore.selectedOtm)) {
+mainStore.fetchHeiList()
+if (!_.isEmpty(mainStore.selectedHei)) {
   mainStore.fetchDirectionsList()
 }
 mainStore.fetchSubjectsList()
@@ -18,7 +18,7 @@ const selectedSubject1 = computed({
   get: () => mainStore.getSelectedSubject1,
   set: (val) => {
     mainStore.selectedSubject1 = val
-    mainStore.selectedOtm = {}
+    mainStore.selectedHei = {}
     mainStore.selectedDirection = {}
   }
 })
@@ -27,15 +27,15 @@ const selectedSubject2 = computed({
   get: () => mainStore.getSelectedSubject2,
   set: (val) => {
     mainStore.selectedSubject2 = val
-    mainStore.selectedOtm = {}
+    mainStore.selectedHei = {}
     mainStore.selectedDirection = {}
   }
 })
 
-const selectedOtm = computed({
-  get: () => mainStore.getSelectedOtm,
+const selectedHei = computed({
+  get: () => mainStore.getSelectedHei,
   set: (val: any) => {
-    mainStore.selectedOtm = val
+    mainStore.selectedHei = val
     mainStore.fetchDirectionsList()
   }
 })
@@ -92,11 +92,11 @@ async function goNext() {
       <h6 class="mb-3">
         {{ t("Oliy ta'lim muassasi") }}
       </h6>
-      <select class="form-select rounded-pill mb-3" v-model="selectedOtm">
+      <select class="form-select rounded-pill mb-3" v-model="selectedHei">
         <option selected disabled :value="{}">
           {{ t("Oliy ta'lim muassasini tanlang") }}
         </option>
-        <option v-for="item in mainStore.getOtmList" :value="item">{{ item.title }}</option>
+        <option v-for="item in mainStore.getHeiList" :value="item">{{ item.title }}</option>
       </select>
       <h6 class="mb-3">
         {{ t("Ta'lim yo'nalishi") }}

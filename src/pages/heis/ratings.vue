@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { fetchRegions, filterOtmByYear } from '~/api';
+import { fetchRegions, filterHeiByYear } from '~/api';
 
 const { t } = useI18n()
 const regions = reactive([])
 const laravelData = ref([])
-// const laravelData = computed(() => mainStore.getOtmPaginatedList)
+// const laravelData = computed(() => mainStore.getHeiPaginatedList)
 
 onMounted(async () => {
   await getResults()
@@ -14,13 +14,13 @@ onMounted(async () => {
 
 // Our method to GET results from a Laravel endpoint
 async function getResults(page = 1) {
-  const res = await filterOtmByYear({ page })
+  const res = await filterHeiByYear({ page })
   laravelData.value = res
 }
 
 async function onYearChange(event: any) {
   const year = event.target.value
-  const res = await filterOtmByYear({ page: 1, year })
+  const res = await filterHeiByYear({ page: 1, year })
   laravelData.value = res
 }
 

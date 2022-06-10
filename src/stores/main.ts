@@ -14,11 +14,11 @@ const locale = "uz";
 
 export const useStore = defineStore("main", {
   state: () => ({
-    otmList: [],
-    otmPaginatedList: [],
+    heiList: [],
+    heiPaginatedList: [],
     directionsList: [],
     subjectsList: [],
-    selectedOtm: useStorage("selectedOtm", {}),
+    selectedHei: useStorage("selectedHei", {}),
     selectedDirection: useStorage("selectedDirection", {}),
     selectedSubjects: useStorage("selectedSubjects", []),
     selectedSubject1: useStorage("selectedSubject1", {}),
@@ -32,11 +32,11 @@ export const useStore = defineStore("main", {
   }),
 
   getters: {
-    getOtmList: (state) => state.otmList,
-    getOtmPaginatedList: (state) => state.otmPaginatedList,
+    getHeiList: (state) => state.heiList,
+    getHeiPaginatedList: (state) => state.heiPaginatedList,
     getDirectionsList: (state) => state.directionsList,
     getSubjectsList: (state) => state.subjectsList,
-    getSelectedOtm: (state) => state.selectedOtm,
+    getSelectedHei: (state) => state.selectedHei,
     getSelectedDirection: (state) => state.selectedDirection,
     getSelectedSubjects: (state) => state.selectedSubjects,
     getSelectedSubject1: (state) => state.selectedSubject1,
@@ -48,44 +48,44 @@ export const useStore = defineStore("main", {
   },
 
   actions: {
-    async fetchOtmList() {
+    async fetchHeiList() {
       try {
         const res = await makeRequest({
-          url: `/api/higher_educational_institutions/all`,
+          url: `/api/heis/all`,
           headers: { authorization: true },
         });
-        this.otmList = res.data;
+        this.heiList = res.data;
       } catch (err: any) {
-        console.log("error while fetching Otm: ", err.message);
+        console.log("error while fetching Hei: ", err.message);
         toast.error(err.message);
         throw err;
       }
     },
 
-    async fetchOtmById(otm_id) {
+    async fetchHeiById(hei_id) {
       try {
         const res = await makeRequest({
-          url: `/api/higher_educational_institutions/${otm_id}`,
+          url: `/api/heis/${hei_id}`,
           headers: { authorization: true },
         });
         return res.data;
       } catch (err: any) {
-        console.log("error while fetching Otm: ", err.message);
+        console.log("error while fetching Hei: ", err.message);
         toast.error(err.message);
         throw err;
       }
     },
 
-    async fetchOtmPaginatedList(payload: any) {
+    async fetchHeiPaginatedList(payload: any) {
       try {
         const res = await makeRequest({
-          url: `/api/higher_educational_institutions`,
+          url: `/api/heis`,
           params: payload,
           headers: { authorization: true },
         });
-        this.otmPaginatedList = res.data;
+        this.heiPaginatedList = res.data;
       } catch (err: any) {
-        console.log("error while fetching Otm: ", err.message);
+        console.log("error while fetching Hei: ", err.message);
         toast.error(err.message);
         throw err;
       }
@@ -128,10 +128,7 @@ export const useStore = defineStore("main", {
     async fetchDirectionsList() {
       try {
         const res = await makeRequest({
-          url: `/api/higher_educational_institutions/${this.selectedOtm.id}/directions`,
-          params: {
-            locale,
-          },
+          url: `/api/heis/${this.selectedHei.id}/directions`,
           headers: { authorization: true },
         });
         this.directionsList = res.data;
@@ -147,7 +144,7 @@ export const useStore = defineStore("main", {
         const exam_id = this.getExam.id;
         const subject_1 = await this.getSelectedSubjects[0]?.id;
         const subject_2 = await this.getSelectedSubjects[1]?.id;
-        const selected_otm = await this.getSelectedOtm.id;
+        const selected_hei = await this.getSelectedHei.id;
         const selected_direction = await this.getSelectedDirection.id;
 
         const res = await makeRequest({
@@ -157,7 +154,7 @@ export const useStore = defineStore("main", {
             subject_1,
             subject_2,
             exam_id,
-            selected_otm,
+            selected_hei,
             selected_direction,
           },
           headers: { authorization: true },

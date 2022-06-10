@@ -4,18 +4,18 @@ import { useStore } from '~/stores/main'
 const props = defineProps<{ id: number }>()
 const mainStore = useStore()
 const { t } = useI18n()
-const laravelData = computed(() => mainStore.getOtmPaginatedList)
-const selectedOtm = ref({})
+const laravelData = computed(() => mainStore.getHeiPaginatedList)
+const selectedHei = ref({})
 
 onMounted(async () => {
   console.log(props.id);
-  const res = await mainStore.fetchOtmById(props.id)
-  selectedOtm.value = res
+  const res = await mainStore.fetchHeiById(props.id)
+  selectedHei.value = res
   // await getResults()
 })
 
 async function getResults(page = 1) {
-  await mainStore.fetchOtmPaginatedList({ page })
+  await mainStore.fetchHeiPaginatedList({ page })
 }
 </script>
 
@@ -24,8 +24,8 @@ async function getResults(page = 1) {
     <div class="row mt-5">
       <div class="col-auto">
         <div class="backBlock d-flex align-items-center">
-          <RouterLink to="/otm/entrance-exam-scores"><img src="/src/assets/images/back.png" srcset=""></RouterLink>
-          <div class="UzName">{{ selectedOtm.title_uz }}</div>
+          <RouterLink to="/heis/entrance-exam-scores"><img src="/src/assets/images/back.png" srcset=""></RouterLink>
+          <div class="UzName">{{ selectedHei.title_uz }}</div>
         </div>
       </div>
       <div class="col-auto ms-auto">

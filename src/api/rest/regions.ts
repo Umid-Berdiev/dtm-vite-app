@@ -7,7 +7,7 @@ export const fetchRegions = async () => {
     });
     return res.data;
   } catch (err: any) {
-    console.log("error while fetching regions: ", err.message);
+    console.log("Error while fetching regions: ", err.message);
     throw err;
   }
 };

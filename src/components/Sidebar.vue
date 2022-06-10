@@ -52,12 +52,12 @@ const { t } = useI18n()
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/otm/entrance-exam-scores">
+          <RouterLink class="nav-link" to="/heis/entrance-exam-scores">
             {{ t("hei_entry_scores") }}
           </RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink class="nav-link" to="/otm/ratings">
+          <RouterLink class="nav-link" to="/heis/ratings">
             {{ t("hei_ratings") }}
           </RouterLink>
         </li>

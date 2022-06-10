@@ -51,7 +51,7 @@ async function handleUserVariant(event, obj) {
   const question_id = obj.id
   const user_variant = event.target.value;
 
-  mainStore.saveUserVariant({
+  await mainStore.saveUserVariant({
     exam_id,
     subject_id,
     subject_slug,
@@ -138,7 +138,7 @@ function isCheckedOne(id, variant) {
                 <span>{{ qIndex + 1 }}</span>. {{ q.title }}
               </div>
               <!-- image block -->
-              <div v-if="q.image_url" class="box py-3 text-center">
+              <div v-if="q.image_url" class="box py-3 text-center" style="height: unset;">
                 <img height="280" class="rounded-3" :src="(STORAGE_URL + q.image_url)" alt="qusetion's image">
               </div>
               <!-- answers -->

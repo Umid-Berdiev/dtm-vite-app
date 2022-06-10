@@ -62,6 +62,20 @@ export const useStore = defineStore("main", {
       }
     },
 
+    async fetchOtmById(otm_id) {
+      try {
+        const res = await makeRequest({
+          url: `/api/higher_educational_institutions/${otm_id}`,
+          headers: { authorization: true },
+        });
+        return res.data;
+      } catch (err: any) {
+        console.log("error while fetching Otm: ", err.message);
+        toast.error(err.message);
+        throw err;
+      }
+    },
+
     async fetchOtmPaginatedList(payload: any) {
       try {
         const res = await makeRequest({

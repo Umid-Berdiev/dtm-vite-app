@@ -11,8 +11,9 @@ const token = useStorage('accessToken', '')
 
 async function onSubmit(event: Event) {
   const values = Object.fromEntries(new FormData(event.target))
-  const res = await login(values)
-  userStore.user.email = res.email
+  const { email, locale } = await login(values)
+  userStore.user.email = email
+  userStore.user.locale = locale
   router.push('/')
 }
 </script>

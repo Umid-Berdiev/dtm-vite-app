@@ -3,7 +3,6 @@ import { useToast } from "vue-toastification";
 import makeRequest from "../api/makeRequest";
 
 const toast = useToast();
-const locale = "uz";
 
 /**
  * Simulate a login
@@ -21,12 +20,14 @@ export const useUserStore = defineStore({
   state: () => ({
     user: useStorage("user", {
       email: "",
+      locale: "uz",
       balance: 0,
     }),
   }),
 
   getters: {
     getUserBalance: (state) => state.user.balance,
+    getUserLocale: (state) => state.user.locale,
   },
 
   actions: {
@@ -48,6 +49,24 @@ export const useUserStore = defineStore({
       } catch (error: any) {
         console.log("Error while updating user balance: ", error.message);
         toast.error("Error while updating user balance: " + error.message);
+        throw error;
+      }
+    },
+
+    async setLocale(locale: string) {
+      try {
+        const res = await makeRequest({
+          url: "/api/locale",
+          method: "post",
+          data: {
+            locale,
+          },
+          headers: { authorization: true },
+        });
+
+        this.user.locale = res.data.locale;
+      } catch (error: any) {
+        console.log("Error while setting locale: ", error.message);
         throw error;
       }
     },

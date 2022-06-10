@@ -34,7 +34,7 @@ async function onLogout() {
         <CustomSelect v-model="options[0].value" :options="options" />
       </div>
       <div class="d-flex gap-3 align-items-center">
-        <!-- <LocaleSwitcher /> -->
+        <LocaleSwitcher />
         <button class="btn btn-outline-secondary rounded-pill me-3" type="button" @click="onLogout">{{ t('logout')
         }}</button>
         <i class="bi bi-bell-fill" style="font-size: 1.2rem;" />

@@ -11,6 +11,7 @@ onMounted(async () => {
 })
 
 function goTo(id: number) {
+
   router.push(`/otm/entrance-exam-scores/${encodeURIComponent(id)}`)
 }
 

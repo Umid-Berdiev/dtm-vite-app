@@ -1,9 +1,15 @@
 <script setup lang="ts">
+import { useUserStore } from '~/stores/user';
 
-const { locale, availableLocales } = useI18n()
+const { setLocale } = useUserStore();
+const { locale, availableLocales } = useI18n({
+  useScope: 'global'
+})
 
-const changeLocale = (event: any) => {
-  locale.value = event.target.value
+const changeLocale = async (event: any) => {
+  const localeValue = event.target.value
+  await setLocale(localeValue)
+  location.reload()
 }
 </script>
 

@@ -19,6 +19,7 @@ export const install: UserModule = ({ app }) => {
     locale: "uz",
     fallbackLocale: "uz", // set fallback locale
     messages,
+    globalInjection: true,
   });
 
   app.use(i18n);

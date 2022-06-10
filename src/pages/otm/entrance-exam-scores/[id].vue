@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { useStore } from '~/stores/main'
 
+const props = defineProps<{ id: number }>()
 const mainStore = useStore()
 const { t } = useI18n()
 const laravelData = computed(() => mainStore.getOtmPaginatedList)
+const selectedOtm = ref({})
 
 onMounted(async () => {
-  await getResults()
+  console.log(props.id);
+  const res = await mainStore.fetchOtmById(props.id)
+  selectedOtm.value = res
+  // await getResults()
 })
 
 async function getResults(page = 1) {
@@ -19,8 +24,8 @@ async function getResults(page = 1) {
     <div class="row mt-5">
       <div class="col-auto">
         <div class="backBlock d-flex align-items-center">
-          <div><img src="/src/assets/images/back.png" srcset=""></div>
-          <div class="UzName">Andijon davlat universiteti</div>
+          <RouterLink to="/otm/entrance-exam-scores"><img src="/src/assets/images/back.png" srcset=""></RouterLink>
+          <div class="UzName">{{ selectedOtm.title_uz }}</div>
         </div>
       </div>
       <div class="col-auto ms-auto">

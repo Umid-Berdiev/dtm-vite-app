@@ -10,11 +10,11 @@ export const login = async (payload: any) => {
       data: payload,
     });
 
-    const { email, accessToken } = res.data;
+    const { email, locale, accessToken } = res.data;
 
     if (accessToken) {
       token.value = accessToken;
-      return { email };
+      return { email, locale };
     } else throw new Error("Auth failed");
   } catch (error: any) {
     console.log("Error while logout user: ", error.message);

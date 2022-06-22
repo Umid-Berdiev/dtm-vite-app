@@ -1,6 +1,12 @@
 import { fetchRegions } from "~/api";
 
-const regions = reactive([]);
+interface Region {
+  id?: number;
+  soato: number | string;
+  name: string;
+}
+
+const regions: Region[] = reactive([]);
 const selectedRegion = ref();
 
 export default () => {

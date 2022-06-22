@@ -7,9 +7,11 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     AcademicYearSelect: typeof import('./components/form/selects/AcademicYearSelect.vue')['default']
     AuthHeader: typeof import('./components/AuthHeader.vue')['default']
+    BackButton: typeof import('./components/buttons/BackButton.vue')['default']
     BlackWhiteLogo: typeof import('./components/icons/logos/BlackWhiteLogo.vue')['default']
     Box: typeof import('./components/Box.vue')['default']
     BrainLogo: typeof import('./components/icons/logos/BrainLogo.vue')['default']
+    CircleIcon: typeof import('./components/icons/CircleIcon.vue')['default']
     ColumnsGapIcon: typeof import('./components/icons/sidebar/ColumnsGapIcon.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
     CustomPagination: typeof import('./components/CustomPagination.vue')['default']

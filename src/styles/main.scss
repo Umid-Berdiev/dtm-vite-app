@@ -36,6 +36,9 @@ $green: #00b533;
 $teal: #20c997;
 $cyan: #0dcaf0;
 
+// Merge the maps
+// $theme-colors: map-merge($theme-colors, $purple);
+
 @import "custom-styles";
 @import "dashboard";
 @import "bootstrap";

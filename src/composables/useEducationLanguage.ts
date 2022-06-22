@@ -1,6 +1,11 @@
 import { fetchEducationLanguages } from "~/api";
 
-const data = reactive([]);
+interface EducationLang {
+  id: number;
+  name: string;
+}
+
+const data: EducationLang[] = reactive([]);
 const selectedItem = ref();
 
 export default () => {

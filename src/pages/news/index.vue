@@ -1,8 +1,9 @@
 <script  setup lang="ts">
 const router = useRouter()
 
-function innernews() {
-  router.push('/news-inner')
+function goTo(newsID: number) {
+  if (newsID)
+    router.push(`/news/${encodeURIComponent(newsID)}`)
 }
 </script>
 
@@ -11,66 +12,56 @@ function innernews() {
     <div class="row">
       <div class="col-md-11">
         <div class="row">
-          <div class="col-md-4 my-4">
-            <div class="newsBox" @click="innernews">
+          <div class="col-md-4 my-4" role="button" @click="goTo(249)">
+            <div class="newsBox">
               <div class="newsImages"><img src="src/assets/images/dtmpost.png" alt="" srcset=""></div>
               <div class="newsDate">
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a @click="innernews">Davlat test markazi va Britaniya Kengashi o‘rtasida
-                  uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida
+                uchrashuv</div>
             </div>
           </div>
-          <div class="col-md-4 my-4" @click="innernews">
+          <div class="col-md-4 my-4" role="button" @click="goTo(249)">
             <div class="newsBox">
               <div class="newsImages"><img src="src/assets/images/pos2.png" alt="" srcset=""></div>
               <div class="newsDate">
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
             </div>
           </div>
-          <div class="col-md-4 my-4" @click="innernews">
+          <div class="col-md-4 my-4" role="button" @click="goTo(249)">
             <div class="newsBox">
               <div class="newsImages"><img src="src/assets/images/post3.png" alt="" srcset=""></div>
               <div class="newsDate">
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Maktab bitiruvchilari uchun ochiq eshiklar kuni o‘tkazildi</a></div>
+              <div class="h5">Maktab bitiruvchilari uchun ochiq eshiklar kuni o‘tkazildi</div>
             </div>
           </div>
-          <div class="col-md-4 my-4" @click="innernews">
+          <div class="col-md-4 my-4" role="button" @click="goTo(249)">
             <div class="newsBox">
               <div class="newsImages"><img src="src/assets/images/post3.png" alt="" srcset=""></div>
               <div class="newsDate">
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Chet tili imtihoni uchun my.gov.uz sayti orqali onlayn ro‘yxatdan o‘tish
-                  bo‘yicha yo‘riqnoma</a></div>
+              <div class="h5">Chet tili imtihoni uchun my.gov.uz sayti orqali onlayn ro‘yxatdan o‘tish
+                bo‘yicha yo‘riqnoma</div>
             </div>
           </div>
-          <div class="col-md-4 my-4" @click="innernews">
+          <div class="col-md-4 my-4" role="button" @click="goTo(249)">
             <div class="newsBox">
               <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
               <div class="newsDate">
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
-            </div>
-          </div>
-          <div class="col-md-4 my-4">
-            <div class="newsBox">
-              <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
-              <div class="newsDate">
-                <div><img src="src/assets/images/date.png" alt=""></div>
-                <div class="dateText">28-fevral 09:15</div>
-              </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
             </div>
           </div>
           <div class="col-md-4 my-4">
@@ -80,7 +71,7 @@ function innernews() {
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
             </div>
           </div>
           <div class="col-md-4 my-4">
@@ -90,7 +81,7 @@ function innernews() {
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
             </div>
           </div>
           <div class="col-md-4 my-4">
@@ -100,7 +91,17 @@ function innernews() {
                 <div><img src="src/assets/images/date.png" alt=""></div>
                 <div class="dateText">28-fevral 09:15</div>
               </div>
-              <div class="newsText"><a href="">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</a></div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
+            </div>
+          </div>
+          <div class="col-md-4 my-4">
+            <div class="newsBox">
+              <div class="newsImages"><img src="src/assets/images/post4.png" alt="" srcset=""></div>
+              <div class="newsDate">
+                <div><img src="src/assets/images/date.png" alt=""></div>
+                <div class="dateText">28-fevral 09:15</div>
+              </div>
+              <div class="h5">Davlat test markazi va Britaniya Kengashi o‘rtasida uchrashuv</div>
             </div>
           </div>
         </div>
@@ -133,18 +134,6 @@ function innernews() {
       padding-left: 10px;
       padding-top: 5px;
 
-    }
-  }
-
-  .newsText {
-    a {
-      font-family: 'Inter' sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      color: #000000;
-      text-decoration: none;
     }
   }
 

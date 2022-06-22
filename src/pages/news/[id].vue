@@ -8,16 +8,16 @@ function news() {
 <template>
   <div class="container-fluid">
     <div class="row mt-4">
-      <div class="col-md-2" @click="news">
-        <div class="BackInnerNews"><img src="src/assets/images/back.png" alt=""></div>
+      <div class="col-md-2">
+        <BackButton class="btn-outline-secondary" />
       </div>
       <div class="col-md-8 m-auto">
         <div class="newsInnerImage">
-          <img src="src/assets/images/postInner.png" />
+          <img src="/src/assets/images/postInner.png" />
         </div>
         <div>
           <div class="newsDate">
-            <div><img src="src/assets/images/date.png" alt=""></div>
+            <div><img src="/src/assets/images/date.png" alt=""></div>
             <div class="dateText">28-fevral 09:15</div>
           </div>
         </div>
@@ -93,24 +93,5 @@ function news() {
     color: #000000;
     text-decoration: none;
   }
-}
-
-p {
-  font-family: 'Inter' sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  color: #000000;
-}
-
-.BackInnerNews {
-  width: 40px;
-  line-height: 40px;
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
-  border-radius: 10px;
-  text-align: center;
-
 }
 </style>

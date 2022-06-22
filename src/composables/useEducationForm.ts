@@ -1,6 +1,11 @@
 import { fetchEducationForms } from "~/api";
 
-const data = reactive([]);
+interface EducationForm {
+  id: number;
+  title: string;
+}
+
+const data: EducationForm[] = reactive([]);
 const selectedItem = ref();
 
 export default () => {

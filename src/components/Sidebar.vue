@@ -3,7 +3,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-flex sidebar collapse border-right px-0">
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-flex sidebar collapse px-0">
     <div class="bg-light px-2 pt-3 border-end">
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center gap-3">
         <li class="nav-item">
@@ -66,12 +66,18 @@ const { t } = useI18n()
             {{ t("news") }}
           </RouterLink>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <RouterLink class="nav-link" to="/statistics">
             {{ t("statistics") }}
           </RouterLink>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
 </template>
+
+<style scoped lang="scss">
+.border-end {
+  border-right: 1px solid rgba(209, 213, 219, 1) !important;
+}
+</style>

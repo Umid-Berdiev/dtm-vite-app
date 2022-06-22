@@ -29,10 +29,10 @@ async function onLogout() {
           <span class="navbar-toggler-icon" />
         </button>
       </div>
-      <div class="d-flex gap-3">
+      <!-- <div class="d-flex gap-3">
         <BrainLogo />
         <CustomSelect v-model="options[0].value" :options="options" />
-      </div>
+      </div> -->
       <div class="d-flex gap-3 align-items-center">
         <LocaleSwitcher />
         <button class="btn btn-outline-secondary rounded-pill me-3" type="button" @click="onLogout">{{ t('logout')
@@ -67,5 +67,9 @@ async function onLogout() {
   input[type=number] {
     -moz-appearance: textfield;
   }
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(209, 213, 219, 1) !important;
 }
 </style>

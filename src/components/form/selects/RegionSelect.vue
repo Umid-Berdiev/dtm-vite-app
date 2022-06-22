@@ -1,27 +1,26 @@
 <script setup lang="ts">
 import useRegion from "~/composables/useRegion";
 
-const { t } = useI18n()
+defineProps({
+  modelValue: Number
+});
 
-// const props = defineProps({
-//   modelValue: {
-//     type: Number
-//   },
-// })
+const emits = defineEmits(['update:modelValue'])
+
+const { t } = useI18n()
 
 const {
   setRegions,
   getRegions,
-  setSelectedRegion,
-  getSelectedRegion,
 } = useRegion();
 
 setRegions()
 </script>
 
 <template>
-  <select name="region" class="form-select rounded-pill" :placeholder="t('select_region')">
-    <option selected disabled>{{ t('select_region') }}</option>
+  <select :value="modelValue" @change="emits('update:modelValue', $event.target.value)" name="region"
+    class="form-select rounded-pill" :placeholder="t('select_region')">
+    <option selected disabled value="">{{ t('select_region') }}</option>
     <option v-for="region in getRegions" :value="region.soato">
       {{ region.name }}
     </option>

@@ -91,6 +91,21 @@ export const useStore = defineStore("main", {
       }
     },
 
+    async filterHei(payload: any) {
+      try {
+        const res = await makeRequest({
+          url: `/api/heis/filter`,
+          params: payload,
+          headers: { authorization: true },
+        });
+        this.heiPaginatedList = res.data;
+      } catch (err: any) {
+        console.log("error while fetching Hei: ", err.message);
+        toast.error(err.message);
+        throw err;
+      }
+    },
+
     async fetchSubjectsList() {
       try {
         const res = await makeRequest({

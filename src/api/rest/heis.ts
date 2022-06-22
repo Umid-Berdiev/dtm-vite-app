@@ -29,6 +29,20 @@ export const fetchEducationLanguages = async () => {
 export const filterHeiByYear = async (params: any) => {
   try {
     const res = await makeRequest({
+      url: `/api/heis/filter_by_year`,
+      params,
+      headers: { authorization: true },
+    });
+    return res.data;
+  } catch (err: any) {
+    console.log("Error while fetching filtered heis: ", err.message);
+    throw err;
+  }
+};
+
+export const filterHei = async (params: any) => {
+  try {
+    const res = await makeRequest({
       url: `/api/heis/filter`,
       params,
       headers: { authorization: true },
